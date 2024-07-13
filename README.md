@@ -13,8 +13,8 @@ Movie App using [The Movie DB](https://www.themoviedb.org) and build with react-
   <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/iPhone-Xs-2024-07-13-at-18.18.46.png" />
   <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/iPhone-Xs-2024-07-13-at-18.18.54.png" />
   <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/dark-first.jpeg" />
-  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/second.jpeg" />
-  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/third.jpeg" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/dark-second.jpeg" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/dark-third.jpeg" />
   <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/test.png" />
 </p>
 
