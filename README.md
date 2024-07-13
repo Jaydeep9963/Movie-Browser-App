@@ -1,50 +1,59 @@
-# Welcome to your Expo app 👋
+# Movie World (Expo)
+[![React Native](https://img.shields.io/badge/React%20Native-v0.74.3-green.svg)](https://facebook.github.io/react-native/)
+![badge-Android](https://img.shields.io/badge/Platform-Android-brightgreen)
+![badge-iOS](https://img.shields.io/badge/Platform-iOS-lightgray)
+[![Redux](https://img.shields.io/badge/Redux-5.0.1-764ABC?logo=redux)](https://redux.js.org/)
+[![GitHub license](https://img.shields.io/badge/license-Apache%20License%202.0-blue.svg?style=flat)](https://www.apache.org/licenses/LICENSE-2.0)
+<a href="https://github.com/Jaydeep9963"><img alt="License" src="https://img.shields.io/static/v1?label=GitHub&message=Jaydeep9963&color=C51162"/></a>
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Movie App using [The Movie DB](https://www.themoviedb.org) and build with react-native and redux based architecture<br>
 
-## Get started
+<p float="left">
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/iPhone-Xs-2024-07-13-at-18.18.40.png" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/iPhone-Xs-2024-07-13-at-18.18.46.png" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/iPhone-Xs-2024-07-13-at-18.18.54.png" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/dark-first.png" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/second.png" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/third.png" />
+  <img width="40%" height="50%" src="https://github.com/Jaydeep9963/Movie-Browser-App/blob/main/screenshots/test.png" />
+</p>
 
-1. Install dependencies
+# Main Features
+- Movie List
+- Pagination
+- Movie detail
+- Bottom navigation
+- Artist info and artist detail
+- No internet connection check
 
-   ```bash
-   npm install
-   ```
+## Architecture
+  - Redux-based Architecture (action - reducer - sagas)
+  - Hooks
+  - Redux-Saga
+<p float="left">
+<a href='http://redux.js.org'><img src='https://camo.githubusercontent.com/f28b5bc7822f1b7bb28a96d8d09e7d79169248fc/687474703a2f2f692e696d6775722e636f6d2f4a65567164514d2e706e67' height='25' alt='Redux Logo' aria-label='redux.js.org' /></a>
 
-2. Start the app
+<a href='https://redux-saga.js.org/'><img src='https://redux-saga.js.org/img/Redux-Saga-Logo-Landscape.png' height='25' alt='Redux Logo' aria-label='redux-saga.js.org/' /></a>
+</p>
 
-   ```bash
-    npx expo start
-   ```
+## Built With 🛠
+- [React-Native-Expo](https://reactnative.dev/) - React Native brings React's declarative UI framework to iOS and Android. With React Native, you use native UI controls and have full access to the native platform..
+- [Redux](https://redux.js.org/) - Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
+- [Redux-toolkit](https://redux-toolkit.js.org/) - The official, opinionated, batteries-included toolset for efficient Redux development
+- [Redux-Saga](https://redux-saga.js.org/) - An intuitive Redux side effect manager.
+- [Axios](https://github.com/axios/axios) - Promise based HTTP client for the browser and node.js
 
-In the output, you'll find options to open the app in a
+## Requirements
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- [Yarn](https://yarnpkg.com/) (latest)
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## How to run
 
-## Get a fresh project
+- `git clone git@github.com:Jaydeep9963/Movie-Browser-App.git`
+- `yarn install`
+- `yarn start`
 
-When you're ready, run:
+Now, you can choose a command to run the project:
 
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- `yarn ios` to run on iOS simulator
+- `yarn android` to run on Android simulator

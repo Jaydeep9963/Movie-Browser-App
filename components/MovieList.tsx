@@ -10,6 +10,7 @@ import {
   TouchableOpacity,
   useColorScheme,
   View,
+  Text,
 } from "react-native";
 
 interface MovieListProps {
@@ -30,24 +31,81 @@ const MovieList = (props: MovieListProps) => {
         style={styles.movieItemContainer}
         onPress={() => onPress(item)}
       >
-        <ImageBackground
-          imageStyle={{ borderRadius: 18 }}
-          source={
-            isLoading
-              ? require("../assets/images/placeholder.jpeg")
-              : { uri: `${Constants.IMAGE_URL}${item.poster_path}` }
-          }
+        <View
+          style={[
+            styles.movieItemView,
+            {
+              backgroundColor:
+                theme === "light" ? Colors.light.black : Colors.dark.whiteColor,
+            },
+          ]}
         >
           <Image
             style={styles.imageView}
-            source={{
-              uri: `${Constants.IMAGE_URL}${item.poster_path}`,
-            }}
+            source={
+              isLoading
+                ? require("../assets/images/placeholder.jpeg")
+                : { uri: `${Constants.IMAGE_URL}${item.poster_path}` }
+            }
             onLoadEnd={() => {
               setIsLoading(false);
             }}
           />
-        </ImageBackground>
+          <View style={[styles.movieDetailsContainer]}>
+            <Text
+              style={[
+                styles.title,
+                {
+                  color:
+                    theme === "light"
+                      ? Colors.light.whiteColor
+                      : Colors.dark.black,
+                },
+              ]}
+              numberOfLines={1}
+            >
+              {item.title}
+            </Text>
+            <View
+              style={{
+                flex: 1,
+                justifyContent: "space-between",
+                flexDirection: "row",
+              }}
+            >
+              <Text
+                style={[
+                  styles.infoTitleData,
+                  {
+                    color:
+                      theme === "light"
+                        ? Colors.light.whiteColor
+                        : Colors.dark.black,
+                  },
+                ]}
+              >
+                {new Date(item.release_date).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "short",
+                  year: "numeric",
+                })}
+              </Text>
+              <Text
+                style={[
+                  styles.infoTitleData,
+                  {
+                    color:
+                      theme === "light"
+                        ? Colors.light.whiteColor
+                        : Colors.dark.black,
+                  },
+                ]}
+              >
+                ⭐️{item.vote_average.toFixed(2) + "/10"}
+              </Text>
+            </View>
+          </View>
+        </View>
       </TouchableOpacity>
     );
   };
@@ -58,9 +116,7 @@ const MovieList = (props: MovieListProps) => {
         styles.mainView,
         {
           backgroundColor:
-            theme === "light"
-              ? Colors.light.whiteColor
-              : Colors.dark.whiteColor,
+            theme === "light" ? Colors.light.whiteColor : Colors.dark.black,
         },
       ]}
     >
@@ -73,6 +129,7 @@ const MovieList = (props: MovieListProps) => {
         keyExtractor={(item, index) => index.toString()}
         onEndReachedThreshold={0.2}
         onEndReached={() => loadMoreData()}
+        testID="flat-list"
       />
     </View>
   );
@@ -94,6 +151,18 @@ const styles = StyleSheet.create({
     borderRadius: 18,
     resizeMode: "cover",
   },
+  movieItemView: {
+    flex: 1,
+    borderRadius: 18,
+  },
+  title: {
+    fontSize: 14,
+    fontWeight: "bold",
+  },
+  movieDetailsContainer: {
+    padding: 8,
+  },
+  infoTitleData: { fontSize: 10, fontWeight: "500" },
 });
 
 export default MovieList;

@@ -12,7 +12,6 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        headerShown: false,
       }}
     >
       <Tabs.Screen
@@ -54,7 +53,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="upcoming"
         options={{
-          title: "UpComing",
+          title: "Up Coming",
           tabBarIcon: ({ color, focused }) => (
             <TabBarIcon
               name={focused ? "chevron-up" : "chevron-up-outline"}

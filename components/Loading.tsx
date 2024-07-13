@@ -16,6 +16,7 @@ const Loading = () => {
 
   return (
     <View
+      testID="loading-indicator"
       style={[
         styles.containerLoading,
         {

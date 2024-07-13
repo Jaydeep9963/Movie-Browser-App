@@ -42,13 +42,20 @@ export default function RootLayout() {
         <Stack>
           <Stack.Screen
             name="(tabs)"
-            options={{ headerShown: false, headerBackTitle: "" }}
+            options={{ headerShown: false, title: "" }}
           />
           <Stack.Screen
-            name="detail"
+            name="movieDetail"
             options={{
               title: "Movie detail",
+            }}
+          />
+          <Stack.Screen
+            name="artistDetail"
+            options={{
+              title: "Artist detail",
               headerBackTitle: "",
+              headerBackTitleVisible: false,
             }}
           />
         </Stack>

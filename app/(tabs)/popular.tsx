@@ -23,12 +23,12 @@ const PopularScreen = () => {
 
   // main view with loading while api call is going on
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer} testID="safe-area-view">
       <MovieList
         movies={movieList}
         onPress={(item) =>
           router.navigate({
-            pathname: "detail",
+            pathname: "movieDetail",
             params: { movieId: item.id },
           })
         }

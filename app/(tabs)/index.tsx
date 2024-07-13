@@ -21,15 +21,15 @@ const Home = () => {
   }, [pageNumber]);
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
+    <SafeAreaView style={styles.mainContainer} testID="safe-area-view">
       <MovieList
         movies={movieList}
         loadMoreData={() => {
           setPageNumber(pageNumber + 1);
         }}
         onPress={(item) =>
-          router.navigate({
-            pathname: "detail",
+          router.push({
+            pathname: "movieDetail",
             params: { movieId: item.id },
           })
         }

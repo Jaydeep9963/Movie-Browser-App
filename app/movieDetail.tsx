@@ -1,6 +1,7 @@
 import Loading from "@/components/Loading";
 import { Constants } from "@/constants/AppConstants";
 import { getArtist } from "@/redux/reducer/artist";
+import { Colors } from "@/constants/Colors";
 import { getMovieDetail } from "@/redux/reducer/moviedetail";
 import { getSimilarMovie } from "@/redux/reducer/similarmovie";
 import React, { useEffect } from "react";
@@ -11,11 +12,18 @@ import {
   Text,
   TouchableOpacity,
   View,
+  StyleSheet,
+  useColorScheme,
 } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocalSearchParams, useRouter } from "expo-router";
 
-const MovieDetail = ({ navigation, route }) => {
-  const { movieId } = route.params;
+const MovieDetail = () => {
+  const router = useRouter();
+  const params = useLocalSearchParams();
+  const theme = useColorScheme() ?? "light";
+  const { movieId } = params;
+
   //communicate with redux
   const dispatch = useDispatch();
 
@@ -36,7 +44,12 @@ const MovieDetail = ({ navigation, route }) => {
     return (
       <TouchableOpacity
         style={styles.movieItemContainer}
-        onPress={() => navigation.replace("MovieDetail", { movieId: item.id })}
+        onPress={() =>
+          router.replace({
+            pathname: "movieDetail",
+            params: { movieId: item.id },
+          })
+        }
       >
         <Image
           style={styles.similarImageView}
@@ -47,16 +60,28 @@ const MovieDetail = ({ navigation, route }) => {
       </TouchableOpacity>
     );
   };
+
   const artistItem = ({ item }) => {
     return (
       <TouchableOpacity
         style={styles.movieItemContainer}
         onPress={() => {
-          navigation.navigate("ArtistDetail", { personId: item.id });
+          router.navigate({
+            pathname: "artistDetail",
+            params: { personId: item.id },
+          });
         }}
       >
         <Image
-          style={styles.artistImageView}
+          style={[
+            styles.artistImageView,
+            {
+              borderColor:
+                theme === "light"
+                  ? Colors.light.inputTextBorderColor
+                  : Colors.dark.inputTextBorderColor,
+            },
+          ]}
           source={{
             uri: `${Constants.IMAGE_URL}${item.profile_path}`,
           }}
@@ -69,7 +94,11 @@ const MovieDetail = ({ navigation, route }) => {
   return isLoading ? (
     <Loading />
   ) : (
-    <ScrollView style={styles.mainView}>
+    <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={styles.mainView}
+      contentContainerStyle={{ paddingBottom: 50 }}
+    >
       <Image
         style={styles.imageView}
         source={{
@@ -77,30 +106,115 @@ const MovieDetail = ({ navigation, route }) => {
         }}
       />
       <View style={styles.secondContainer}>
-        <Text style={styles.title}>{movieDetail.title}</Text>
+        <Text
+          style={[
+            styles.title,
+            {
+              color:
+                theme === "light" ? Colors.light.black : Colors.dark.whiteColor,
+            },
+          ]}
+        >
+          {movieDetail.title}
+        </Text>
         <View style={styles.thirdContainer}>
           <View style={styles.fourthContainer}>
-            <Text style={styles.infoTitleData}>
+            <Text
+              style={[
+                styles.infoTitleData,
+                {
+                  color:
+                    theme === "light"
+                      ? Colors.light.black
+                      : Colors.dark.whiteColor,
+                },
+              ]}
+            >
               {movieDetail.original_language}
             </Text>
             <Text style={styles.infoTitle}>Language</Text>
           </View>
           <View style={styles.fourthContainer}>
-            <Text style={styles.infoTitleData}>{movieDetail.vote_average}</Text>
+            <Text
+              style={[
+                styles.infoTitleData,
+                {
+                  color:
+                    theme === "light"
+                      ? Colors.light.black
+                      : Colors.dark.whiteColor,
+                },
+              ]}
+            >
+              {movieDetail.vote_average}
+            </Text>
             <Text style={styles.infoTitle}>Rating</Text>
           </View>
           <View style={styles.fourthContainer}>
-            <Text style={styles.infoTitleData}>{movieDetail.runtime} min</Text>
+            <Text
+              style={[
+                styles.infoTitleData,
+                {
+                  color:
+                    theme === "light"
+                      ? Colors.light.black
+                      : Colors.dark.whiteColor,
+                },
+              ]}
+            >
+              {movieDetail.runtime} min
+            </Text>
             <Text style={styles.infoTitle}>Duration</Text>
           </View>
           <View style={styles.fourthContainer}>
-            <Text style={styles.infoTitleData}>{movieDetail.release_date}</Text>
+            <Text
+              style={[
+                styles.infoTitleData,
+                {
+                  color:
+                    theme === "light"
+                      ? Colors.light.black
+                      : Colors.dark.whiteColor,
+                },
+              ]}
+            >
+              {movieDetail.release_date}
+            </Text>
             <Text style={styles.infoTitle}>Release Date</Text>
           </View>
         </View>
-        <Text style={styles.description}>Description</Text>
-        <Text>{movieDetail.overview}</Text>
-        <Text style={styles.description}>Similar</Text>
+        <Text
+          style={[
+            styles.description,
+            {
+              color:
+                theme === "light" ? Colors.light.black : Colors.dark.whiteColor,
+            },
+          ]}
+        >
+          Description
+        </Text>
+        <Text
+          style={[
+            {
+              color:
+                theme === "light" ? Colors.light.black : Colors.dark.whiteColor,
+            },
+          ]}
+        >
+          {movieDetail.overview}
+        </Text>
+        <Text
+          style={[
+            styles.description,
+            {
+              color:
+                theme === "light" ? Colors.light.black : Colors.dark.whiteColor,
+            },
+          ]}
+        >
+          Similar
+        </Text>
         <FlatList
           style={styles.flatListContainer}
           data={movieList}
@@ -108,7 +222,17 @@ const MovieDetail = ({ navigation, route }) => {
           keyExtractor={(item, index) => index}
           horizontal={true}
         />
-        <Text style={styles.description}>Artist</Text>
+        <Text
+          style={[
+            styles.description,
+            {
+              color:
+                theme === "light" ? Colors.light.black : Colors.dark.whiteColor,
+            },
+          ]}
+        >
+          Artist
+        </Text>
         <FlatList
           style={styles.flatListContainer}
           data={cast}
@@ -126,7 +250,7 @@ const styles = StyleSheet.create({
   },
   imageView: {
     height: 270,
-    resizeMode: "stretch",
+    resizeMode: "cover",
   },
   secondContainer: {
     flex: 1,
@@ -135,7 +259,6 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 20,
-    color: COLOR.black,
     fontWeight: "bold",
   },
   thirdContainer: {
@@ -143,14 +266,13 @@ const styles = StyleSheet.create({
     marginTop: 8,
   },
   infoTitle: { fontSize: 12 },
-  infoTitleData: { fontSize: 14, color: COLOR.black, fontWeight: "bold" },
+  infoTitleData: { fontSize: 14, fontWeight: "bold" },
   fourthContainer: {
     flex: 1,
   },
   description: {
     marginTop: 8,
     fontSize: 19,
-    color: COLOR.black,
     fontWeight: "bold",
   },
   flatListContainer: {
@@ -170,7 +292,6 @@ const styles = StyleSheet.create({
     borderRadius: 40,
     marginHorizontal: 4,
     borderWidth: 1.5,
-    borderColor: COLOR.inputTextBorderColor,
     resizeMode: "cover",
   },
 });
