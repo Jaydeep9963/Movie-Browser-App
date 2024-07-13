@@ -1,4 +1,4 @@
-# Movie World (Expo)
+# Movie-Browser-App (Expo)
 [![React Native](https://img.shields.io/badge/React%20Native-v0.74.3-green.svg)](https://facebook.github.io/react-native/)
 ![badge-Android](https://img.shields.io/badge/Platform-Android-brightgreen)
 ![badge-iOS](https://img.shields.io/badge/Platform-iOS-lightgray)
@@ -37,7 +37,7 @@ Movie App using [The Movie DB](https://www.themoviedb.org) and build with react-
 </p>
 
 ## Built With 🛠
-- [React-Native-Expo](https://reactnative.dev/) - React Native brings React's declarative UI framework to iOS and Android. With React Native, you use native UI controls and have full access to the native platform..
+- [Expo](https://expo.dev/) - Create universal native apps with React that run on Android, iOS, and the web. Iterate with confidence.
 - [Redux](https://redux.js.org/) - Redux is an open-source JavaScript library for managing and centralizing application state. It is most commonly used with libraries such as React or Angular for building user interfaces.
 - [Redux-toolkit](https://redux-toolkit.js.org/) - The official, opinionated, batteries-included toolset for efficient Redux development
 - [Redux-Saga](https://redux-saga.js.org/) - An intuitive Redux side effect manager.
