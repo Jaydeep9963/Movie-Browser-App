@@ -44,7 +44,7 @@ function* movieListApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.MOVIE_LIST,
-      action.payload
+      action.payload,
     );
     const result = response.data;
     yield put(movieListSuccess(result));
@@ -58,7 +58,7 @@ function* popularMovieListApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.POPULAR_MOVIE_LIST,
-      action.payload
+      action.payload,
     );
     const result = response.data;
     yield put(popularMovieSuccess(result));
@@ -72,7 +72,7 @@ function* topRatedMovieListApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.TOP_RATED_MOVIE_LIST,
-      action.payload
+      action.payload,
     );
     const result = response.data;
     yield put(topRatedMovieSuccess(result));
@@ -86,7 +86,7 @@ function* upComingMovieListApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.UP_COMING_MOVIE_LIST,
-      action.payload
+      action.payload,
     );
     const result = response.data;
     yield put(upcomingMovieSuccess(result));
@@ -100,7 +100,7 @@ function* movieDetailApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.MOVIE_DETAIL(action.payload.movieId),
-      {}
+      {},
     );
     const result = response.data;
     yield put(movieDetailSuccess(result));
@@ -114,7 +114,7 @@ function* similarMovieApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.SIMILAR_MOVIE(action.payload.movieId),
-      {}
+      {},
     );
     const result = response.data;
     yield put(similarMovieSuccess(result));
@@ -128,7 +128,7 @@ function* artistApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.ARTIST(action.payload.movieId),
-      {}
+      {},
     );
     const result = response.data;
     yield put(artistSuccess(result));
@@ -142,7 +142,7 @@ function* artistDetailApi(action: any) {
     const response = yield call(
       AxiosService.getServiceData,
       ApiUrls.ARTIST_DETAIL(action.payload.personId),
-      {}
+      {},
     );
     const result = response.data;
     yield put(artistDetailSuccess(result));
